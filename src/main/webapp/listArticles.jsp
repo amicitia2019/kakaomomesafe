@@ -77,14 +77,16 @@
 				<div class="search-window">
 					<div class="search-wrap">
 						<!-- 검색 -->
-						<form action="${pageContext.request.contextPath}/board/listArticles.do">
+						<form action="${pageContext.request.contextPath}/board/searchArticles.do" name="frmSearch">
+<!-- 						
 							<select name="keyField" class="select">
 								<option value="listMembers">전체</option>
 								<option value="id">작성자</option>
 								<option value="title">제목</option>
 							</select>
+ -->							
 							<input type="text" name="keyWord" placeholder="검색어를 입력해주세요." />
-							<input id="search" type="submit" class="btn btn-dark"  value="검색"/>
+							<input id="search" name="search" type="submit" class="btn btn-dark"  value="검색"/>
 						</form>
 					</div>
 				</div>

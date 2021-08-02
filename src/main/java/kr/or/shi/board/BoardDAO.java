@@ -447,55 +447,24 @@ public class BoardDAO {
 		
 		return articleVO;
 	}
-	public ArrayList<ArticleVO> getMemberlist(String keyField, String keyWord) {
+	public ArrayList<ArticleVO> getMemberlist2(String keyWord) {
 	      ArrayList<ArticleVO> articlesList = new ArrayList<>();
 	      try {
 	         conn = dataFactory.getConnection();
 	         /* level : 오라클에서 제공하는 가상 컬럼으로 글의 깊이를 나타냄 */
-	         if(keyField.equals("id")) {
-	         String sql ="select * from t_board "
-	                    
-	                  
-	                 +"WHERE "+keyField+" LIKE '%"+keyWord+"%' order by id";
+
+	         String sql ="select title from t_board  WHERE title  LIKE '%"   +keyWord+   "%' order by id";
 	            
 	           
 	            pstmt = conn.prepareStatement(sql);
 	            rs = pstmt.executeQuery();
-	         }
-	         else if(keyField.equals("title")){
-	            String sql ="select * from t_board "
-	                       
-	                     
-	                 +"WHERE "+keyField+" LIKE '%"+keyWord+"%' order by title";
 	            
-	           
-	            pstmt = conn.prepareStatement(sql);
-	             rs = pstmt.executeQuery(sql);   
-	         }
+	            System.out.println("rs : " + rs.getRow());
+	         
 	         while(rs.next()) {
-	            int articleNo = rs.getInt("articleNo");
-	            int parentNo = rs.getInt("parentNo");
-	            String title = rs.getString("title");
-	            String content = rs.getString("content");
-	            String id = rs.getString("id");
-	            Date writeDate = rs.getDate("writeDate");
-	            int hit = rs.getInt("hit");
+
+	        	 
 	            
-	            ArticleVO ArticleVO = new ArticleVO();
-	            
-	            ArticleVO.setArticleNo(articleNo);
-	            ArticleVO.setParentNo(parentNo);
-	            ArticleVO.setTitle(title);
-	            ArticleVO.setContent(content);
-	            ArticleVO.setId(id);
-	            ArticleVO.setWriteDate(writeDate);
-	            
-	            
-	            articlesList.add(ArticleVO);
-	            
-	            rs.close();
-	                pstmt.close();
-	                conn.close();
 
 	         }  
 	         

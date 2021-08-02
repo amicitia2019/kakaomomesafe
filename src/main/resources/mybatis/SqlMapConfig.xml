@@ -13,8 +13,8 @@
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
 				<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
-				<property name="url" value="JDBC:oracle:thin:@ashmotte:1521:XE"/>
-				<property name="username" value="system"/>
+				<property name="url" value="JDBC:oracle:thin:@172.20.10.6:1521:XE"/>
+				<property name="username" value="dbasql"/>
 				<property name="password" value="0805"/>
 			</dataSource>
 		</environment>
